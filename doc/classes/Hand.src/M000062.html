@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>win? (Hand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/hand.rb, line 205</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">win?</span>( <span class="ruby-identifier">hand</span> )
+    <span class="ruby-comment cmt"># Dealer busts and Player did not bust</span>
+    (<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">busted?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">busted?</span>) <span class="ruby-operator">||</span>
+
+    <span class="ruby-comment cmt"># Dealer does not have blackjack and Player does</span>
+    (<span class="ruby-operator">!</span><span class="ruby-identifier">hand</span>.<span class="ruby-identifier">blackjack?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">blackjack?</span>) <span class="ruby-operator">||</span>
+
+    <span class="ruby-comment cmt"># Dealer does not have blackjack, neither Player nor Dealer busted, and</span>
+    <span class="ruby-comment cmt"># Player total is greater than Dealer total</span>
+    (<span class="ruby-operator">!</span><span class="ruby-identifier">hand</span>.<span class="ruby-identifier">blackjack?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hand</span>.<span class="ruby-identifier">busted?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">busted?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">total</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">total</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

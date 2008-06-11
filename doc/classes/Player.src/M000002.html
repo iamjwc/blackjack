@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>total (Player)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/player.rb, line 14</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">total</span>
+    <span class="ruby-identifier">totals</span> = [<span class="ruby-value">0</span>]
+
+    <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">card</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">new_totals</span> = []
+
+      <span class="ruby-identifier">card</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">new_totals</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">totals</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">value</span> }
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-identifier">totals</span> = <span class="ruby-identifier">new_totals</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># Removes all of the totals bigger than 21, and then returns the largest</span>
+    <span class="ruby-comment cmt"># one left. If no totals are 21 or under, then it returns :bust</span>
+    <span class="ruby-ivar">@total</span> = <span class="ruby-identifier">totals</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">21</span> }.<span class="ruby-identifier">max</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">:bust</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

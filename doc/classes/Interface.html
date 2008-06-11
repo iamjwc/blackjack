@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Interface</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Interface</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/bin/interface_rb.html">
+                bin/interface.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Interface.html">Interface</a> abstracts a lot of the elements of
+the console interface out into one location.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000090">clear_screen</a>&nbsp;&nbsp;
+      <a href="#M000085">header</a>&nbsp;&nbsp;
+      <a href="#M000087">input</a>&nbsp;&nbsp;
+      <a href="#M000086">main_menu</a>&nbsp;&nbsp;
+      <a href="#M000089">newline</a>&nbsp;&nbsp;
+      <a href="#M000091">pause</a>&nbsp;&nbsp;
+      <a href="#M000092">pause_and_clear_screen</a>&nbsp;&nbsp;
+      <a href="#M000088">seperator</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000090" class="method-detail">
+        <a name="M000090"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000090.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000090.html');return false;">
+          <span class="method-name">clear_screen</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clears the screen by placing many newline characters into the stream,
+pushing old text off screen.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000085" class="method-detail">
+        <a name="M000085"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000085.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000085.html');return false;">
+          <span class="method-name">header</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Displays the main header for the program.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000087" class="method-detail">
+        <a name="M000087"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000087.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000087.html');return false;">
+          <span class="method-name">input</span><span class="method-args">( message )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Displays the message passed to the function, and gets a string from the
+standard input stream. This method takes a block that specifies what is an
+acceptable string and will loop until it is satisfied.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000086" class="method-detail">
+        <a name="M000086"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000086.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000086.html');return false;">
+          <span class="method-name">main_menu</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Displays the main menu for the program and returns their selection as a
+symbol.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000089" class="method-detail">
+        <a name="M000089"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000089.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000089.html');return false;">
+          <span class="method-name">newline</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Simply goes to the next line.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000091" class="method-detail">
+        <a name="M000091"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000091.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000091.html');return false;">
+          <span class="method-name">pause</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Displays a message and waits until enter is pressed before continuing
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000092" class="method-detail">
+        <a name="M000092"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000092.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000092.html');return false;">
+          <span class="method-name">pause_and_clear_screen</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Pauses and clears screen&#8230; Imagine that.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000088" class="method-detail">
+        <a name="M000088"></a>
+
+        <div class="method-heading">
+          <a href="Interface.src/M000088.html" target="Code" class="method-signature"
+            onclick="popupCode('Interface.src/M000088.html');return false;">
+          <span class="method-name">seperator</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Displays a simple seperator.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

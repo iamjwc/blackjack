@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>winnings (Hand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/hand.rb, line 118</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">winnings</span>( <span class="ruby-identifier">dealers_hand</span> )
+    <span class="ruby-identifier">winnings</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">win_by_blackjack?</span>(<span class="ruby-identifier">dealers_hand</span>)
+      <span class="ruby-identifier">winnings</span> = (<span class="ruby-ivar">@bet</span> <span class="ruby-operator">*</span> <span class="ruby-value">1.5</span>).<span class="ruby-identifier">floor</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">win?</span>(<span class="ruby-identifier">dealers_hand</span>)
+      <span class="ruby-identifier">winnings</span> = <span class="ruby-ivar">@bet</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">lose?</span>(<span class="ruby-identifier">dealers_hand</span>)
+      <span class="ruby-identifier">winnings</span> = <span class="ruby-operator">-</span><span class="ruby-ivar">@bet</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">winnings</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

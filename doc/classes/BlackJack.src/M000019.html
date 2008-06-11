@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>take_turn (BlackJack)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/black_jack.rb, line 125</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">take_turn</span>( <span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span> )
+    <span class="ruby-identifier">turn</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">turn</span> = <span class="ruby-identifier">player</span>.<span class="ruby-identifier">take_turn</span>(<span class="ruby-identifier">hand</span>, <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">up_card</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:hit</span><span class="ruby-operator">:</span>
+        <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">hit</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">take_card</span>)
+
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:double_down</span><span class="ruby-operator">:</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">double_down_allowed?</span>
+          <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">double_down</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">take_card</span>)
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-value str">'Cannot double down!'</span>
+        <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:split</span><span class="ruby-operator">:</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">split_allowed?</span>
+          <span class="ruby-identifier">hands</span> = <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">split</span>
+
+          <span class="ruby-value">2</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">hands</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">take_card</span>
+            <span class="ruby-identifier">player</span>.<span class="ruby-identifier">hands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hands</span>[<span class="ruby-identifier">i</span>]
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-value str">'Cannot split!'</span>
+        <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:stand</span><span class="ruby-operator">:</span>
+        <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">stand</span> <span class="ruby-comment cmt"># Ha... Kinda funny how that worked out.</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">turn</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

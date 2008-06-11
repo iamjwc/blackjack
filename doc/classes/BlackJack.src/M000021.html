@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>determine_winner (BlackJack)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/black_jack.rb, line 167</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">determine_winner</span>( <span class="ruby-identifier">player</span> )
+    <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">handle</span>(<span class="ruby-identifier">:determine_player_win</span>, <span class="ruby-identifier">player</span>, <span class="ruby-ivar">@dealer</span>) <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">player</span>.<span class="ruby-identifier">hands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hand</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">handle</span>(<span class="ruby-identifier">:pre_determine_players_hand_win</span>, <span class="ruby-identifier">hand</span>, <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">hand</span>)
+
+        <span class="ruby-identifier">w</span> = <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">winnings</span>(<span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">hand</span>)
+        <span class="ruby-identifier">player</span>.<span class="ruby-identifier">cash</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">w</span>
+        <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">clear_bet!</span>
+
+        <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">handle</span>(<span class="ruby-identifier">:post_determine_players_hand_win</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">hand</span>, <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">hand</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

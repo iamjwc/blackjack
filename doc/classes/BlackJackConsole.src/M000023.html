@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (BlackJackConsole)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/black_jack_console.rb, line 108</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+    <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">header</span>
+
+    <span class="ruby-identifier">menu_selection</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">:quit</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">menu_selection</span>
+      <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">newline</span>
+      <span class="ruby-identifier">count</span> = <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">input</span>( <span class="ruby-ivar">@msgs</span>[<span class="ruby-identifier">:num_players</span>] ) {<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_i</span> }
+
+      <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">newline</span>
+      <span class="ruby-identifier">count</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">name</span> = <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">input</span>( <span class="ruby-ivar">@msgs</span>[<span class="ruby-identifier">:players_name</span>]<span class="ruby-operator">%</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>) ) {<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">o</span>.<span class="ruby-identifier">empty?</span> }
+        <span class="ruby-ivar">@b</span>.<span class="ruby-identifier">join</span>( <span class="ruby-constant">HumanPlayer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>) )
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">newline</span>
+      <span class="ruby-ivar">@b</span>.<span class="ruby-identifier">play_game</span>
+
+      <span class="ruby-identifier">menu_selection</span> = <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">main_menu</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

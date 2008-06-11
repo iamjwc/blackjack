@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>play_round (BlackJack)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/black_jack.rb, line 45</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">play_round</span> 
+    <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">handle</span>(<span class="ruby-identifier">:round</span>) <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">reset_players</span>
+
+      <span class="ruby-identifier">take_bets</span>
+      <span class="ruby-identifier">deal</span>
+      <span class="ruby-identifier">play</span>
+      <span class="ruby-identifier">determine_winners</span>
+      
+      <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">reset!</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

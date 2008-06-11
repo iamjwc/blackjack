@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>take_turn (HumanPlayer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File bin/human_player.rb, line 14</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">take_turn</span>( <span class="ruby-identifier">hand</span>, <span class="ruby-identifier">dealer_card</span> )
+    <span class="ruby-identifier">msg</span> = <span class="ruby-value str">&quot;Hit/Stand&quot;</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/Double-Down&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">double_down_allowed?</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/Split&quot;</span>       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">split_allowed?</span>
+
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot; {h/s&quot;</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/d&quot;</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">double_down_allowed?</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/sp&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">split_allowed?</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;}: &quot;</span>
+
+    <span class="ruby-keyword kw">case</span> <span class="ruby-constant">Interface</span><span class="ruby-operator">::</span><span class="ruby-identifier">input</span>(<span class="ruby-identifier">msg</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> [<span class="ruby-value str">&quot;h&quot;</span>,<span class="ruby-value str">&quot;s&quot;</span>,<span class="ruby-value str">&quot;d&quot;</span>,<span class="ruby-value str">&quot;sp&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">c</span>) }
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;h&quot;</span><span class="ruby-operator">:</span> <span class="ruby-identifier">:hit</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;s&quot;</span><span class="ruby-operator">:</span> <span class="ruby-identifier">:stand</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;d&quot;</span><span class="ruby-operator">:</span> <span class="ruby-identifier">:double_down</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;sp&quot;</span><span class="ruby-operator">:</span> <span class="ruby-identifier">:split</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

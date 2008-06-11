@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Hand</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Hand</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/bin/hand_rb.html">
+                bin/hand.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000042">&lt;&lt;</a>&nbsp;&nbsp;
+      <a href="#M000043">[]</a>&nbsp;&nbsp;
+      <a href="#M000052">active?</a>&nbsp;&nbsp;
+      <a href="#M000051">bet=</a>&nbsp;&nbsp;
+      <a href="#M000049">blackjack?</a>&nbsp;&nbsp;
+      <a href="#M000048">busted?</a>&nbsp;&nbsp;
+      <a href="#M000050">clear_bet!</a>&nbsp;&nbsp;
+      <a href="#M000056">double_down</a>&nbsp;&nbsp;
+      <a href="#M000058">double_down_allowed?</a>&nbsp;&nbsp;
+      <a href="#M000054">hit</a>&nbsp;&nbsp;
+      <a href="#M000065">is_valid_bet?</a>&nbsp;&nbsp;
+      <a href="#M000064">lose?</a>&nbsp;&nbsp;
+      <a href="#M000040">new</a>&nbsp;&nbsp;
+      <a href="#M000063">push?</a>&nbsp;&nbsp;
+      <a href="#M000041">reset!</a>&nbsp;&nbsp;
+      <a href="#M000046">size</a>&nbsp;&nbsp;
+      <a href="#M000045">soft?</a>&nbsp;&nbsp;
+      <a href="#M000057">split</a>&nbsp;&nbsp;
+      <a href="#M000059">split_allowed?</a>&nbsp;&nbsp;
+      <a href="#M000060">splittable?</a>&nbsp;&nbsp;
+      <a href="#M000055">stand</a>&nbsp;&nbsp;
+      <a href="#M000047">to_s</a>&nbsp;&nbsp;
+      <a href="#M000044">total</a>&nbsp;&nbsp;
+      <a href="#M000062">win?</a>&nbsp;&nbsp;
+      <a href="#M000061">win_by_blackjack?</a>&nbsp;&nbsp;
+      <a href="#M000053">winnings</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">bet</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">from_split</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">invalid</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000040.html');return false;">
+          <span class="method-name">new</span><span class="method-args">( player )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000042.html');return false;">
+          <span class="method-name">&lt;&lt;</span><span class="method-args">( card )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a card to the hand and invalidates the total.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000043.html');return false;">
+          <span class="method-name">[]</span><span class="method-args">( index )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets a card at any index in the hand.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000052.html');return false;">
+          <span class="method-name">active?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns if the player is still able to play in the round or not.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000051.html');return false;">
+          <span class="method-name">bet=</span><span class="method-args">( wager )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Places bet if the bet is valid.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000049.html');return false;">
+          <span class="method-name">blackjack?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines if current hand is considered blackjack.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000048.html');return false;">
+          <span class="method-name">busted?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines if hand busted.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000050.html');return false;">
+          <span class="method-name">clear_bet!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the current bet to 0
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000056.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000056.html');return false;">
+          <span class="method-name">double_down</span><span class="method-args">( card )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+If the double down is allowed, the bet is doubled, a card is added to <a
+href="Hand.html">Hand</a>, and then stand is called. Otherwise, error is
+raised.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000058.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000058.html');return false;">
+          <span class="method-name">double_down_allowed?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A double down is allowed whenever a player has enough money to double their
+bet.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000054.html');return false;">
+          <span class="method-name">hit</span><span class="method-args">( card )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Hits the player by adding a card to their hand and updating their total.
+Returns the total.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000065.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000065.html');return false;">
+          <span class="method-name">is_valid_bet?</span><span class="method-args">( wager )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns whether the bet being placed is valid or not. Valid bets must be an
+integer value and must be between $1 and the amount of cash that that
+player has.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000064.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000064.html');return false;">
+          <span class="method-name">lose?</span><span class="method-args">( hand )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines is the hand loses up against another hand.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000063.html');return false;">
+          <span class="method-name">push?</span><span class="method-args">( hand )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines if this hand and the hand it is up against ties.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000041.html');return false;">
+          <span class="method-name">reset!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Resets the hand to its original state.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000046.html');return false;">
+          <span class="method-name">size</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns how many cards are in the hand.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000045.html');return false;">
+          <span class="method-name">soft?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Indicates if the total is a soft total or not.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000057.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000057.html');return false;">
+          <span class="method-name">split</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+If splitting is allowed 2 new hands are created and returned to be placed
+in <a href="Player.html">Player</a>&#8217;s hands, and the current hand is
+invalidated. Otherwise, error is raised.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000059.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000059.html');return false;">
+          <span class="method-name">split_allowed?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A split is allowed whenever a player has enough money to double their bet
+and the hand is Hand#splittable?
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000060.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000060.html');return false;">
+          <span class="method-name">splittable?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A hand is splittable if the player has only two cards, and the two cards
+have the same face value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000055.html');return false;">
+          <span class="method-name">stand</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes the player inactive, and returns the total.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000047.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a comma delimited string of all of the cards in the hand.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000044.html');return false;">
+          <span class="method-name">total</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the total value of the cards in the player&#8217;s hand.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000062.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000062.html');return false;">
+          <span class="method-name">win?</span><span class="method-args">( hand )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines is the hand wins up against another hand.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000061.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000061.html');return false;">
+          <span class="method-name">win_by_blackjack?</span><span class="method-args">( hand )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+If the hand is considered a win and considered blackjack.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="Hand.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('Hand.src/M000053.html');return false;">
+          <span class="method-name">winnings</span><span class="method-args">( dealers_hand )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Computes how much money a hand wins, depending on how it was won/lost.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

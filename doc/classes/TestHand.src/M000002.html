@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_blackjack? (TestHand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/test_hand.rb, line 16</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_blackjack?</span>
+    <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">VALUES</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>,<span class="ruby-identifier">c</span>).<span class="ruby-identifier">largest_value</span> <span class="ruby-operator">==</span> <span class="ruby-value">10</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">reset!</span>
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">:ace</span>)
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">c</span>)
+
+      <span class="ruby-comment cmt"># Asserts that any hand with an ace and card that doesn't have a value</span>
+      <span class="ruby-comment cmt"># of 10, cannot be a blackjack.</span>
+      <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">blackjack?</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">VALUES</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>,<span class="ruby-identifier">c</span>).<span class="ruby-identifier">largest_value</span> <span class="ruby-operator">==</span> <span class="ruby-value">10</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">reset!</span>
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">:ace</span>)
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">c</span>)
+
+      <span class="ruby-comment cmt"># Asserts that every hand with an ace and a card that has a value of 10</span>
+      <span class="ruby-comment cmt"># is a blackjack.</span>
+      <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">blackjack?</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">VALUES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">reset!</span>
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">c</span>)
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">c</span>)
+
+      <span class="ruby-comment cmt"># Asserts that no hand with two of the same cards can be a blackjack.</span>
+      <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">blackjack?</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">VALUES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">reset!</span>
+      <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">from_split</span> = <span class="ruby-keyword kw">true</span>
+
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">:ace</span>)
+      <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">c</span>)
+
+      <span class="ruby-comment cmt"># Asserts that any hand that was created from splitting another hand</span>
+      <span class="ruby-comment cmt"># fails, even if it would otherwise be considered blackjack.</span>
+      <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">blackjack?</span>
+    <span class="ruby-keyword kw">end</span>
+
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
